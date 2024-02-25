@@ -26,7 +26,8 @@ parser.add_argument("--repetition-penalty", type=float, default=1.0)
 parser.add_argument("--batch", type=int, default=1)
 args = parser.parse_args()
 
-device = "cpu"
+# device = "cpu"
+device = "mps"
 dtype = torch.float32
 
 print(f"Loading model {args.model_name}")
