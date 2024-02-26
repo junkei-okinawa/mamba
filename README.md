@@ -14,7 +14,7 @@ with an efficient hardware-aware design and implementation in the spirit of [Fla
 ## Installation
 
 ```sh
-git clone -b cpu https://github.com/junkei-okinawa/mamba.git
+git clone -b mps https://github.com/junkei-okinawa/mamba.git
 cd mamba
 python -m venv --upgrade-dep ./venv
 source venv/bin/activate
