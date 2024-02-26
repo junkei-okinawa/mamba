@@ -36,18 +36,18 @@ if args.eos_token is not None:
     tokenizer.eos_token = args.eos_token
     tokenizer.pad_token = tokenizer.eos_token
 
-print(f"""
-===
-tokenizer.chat_template:
-{tokenizer.chat_template}
-===
-tokenizer.eos_token:
-{tokenizer.eos_token}
-===
-tokenizer.pad_token:
-{tokenizer.pad_token}
-===
-""")
+# print(f"""
+# ===
+# tokenizer.chat_template:
+# {tokenizer.chat_template}
+# ===
+# tokenizer.eos_token:
+# {tokenizer.eos_token}
+# ===
+# tokenizer.pad_token:
+# {tokenizer.pad_token}
+# ===
+# """)
 
 model = MambaLMHeadModel.from_pretrained(args.model_name, device=args.device, dtype=dtype)
 
@@ -92,7 +92,7 @@ out = model.generate(
 )
 
 decoded = tokenizer.batch_decode(out)
-print(f"Decoded: {decoded}")
+# print(f"Decoded: {decoded}")
 assistant_message = (
     decoded[0].split(f"{args.split_str}\n")[-1].replace(tokenizer.eos_token, "")
 )

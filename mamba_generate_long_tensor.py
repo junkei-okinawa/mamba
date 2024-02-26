@@ -26,15 +26,15 @@ if args.eos_token is not None:
     tokenizer.eos_token = args.eos_token
     tokenizer.pad_token = tokenizer.eos_token
 
-print(f"""
-===
-tokenizer.eos_token:
-{tokenizer.eos_token}
-===
-tokenizer.pad_token:
-{tokenizer.pad_token}
-===
-""")
+# print(f"""
+# ===
+# tokenizer.eos_token:
+# {tokenizer.eos_token}
+# ===
+# tokenizer.pad_token:
+# {tokenizer.pad_token}
+# ===
+# """)
 
 model = MambaLMHeadModel.from_pretrained(args.model_name, device=args.device, dtype=dtype)
 
@@ -50,7 +50,7 @@ out = model.generate(input_ids=input_ids, max_length=args.max_length, eos_token_
 decoded = tokenizer.batch_decode(out)
 print("decoded: ", decoded)
 answer = decoded[0].replace(message, "").split("\n\n")[0].strip()
-print("answer: ", answer)
+# print("answer: ", answer)
 answer = answer.replace(tokenizer.eos_token, "")
 
 print("===== RESULT =====\n")

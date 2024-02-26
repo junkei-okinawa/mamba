@@ -1,6 +1,6 @@
-source ~/miniforge3/etc/profile.d/conda.sh
-conda activate mamba_cpu
+source venv/bin/activate
 python "mamba_generate_custom_model.py" \
+--system-prompt "You are a professional travel agent." \
 --prompt "Tell me 5 sites to visit in Spain" \
 --topp 0.9 \
 --temperature 1 \

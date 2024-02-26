@@ -1,5 +1,4 @@
-source ~/miniforge3/etc/profile.d/conda.sh
-conda activate mamba_cpu
+source venv/bin/activate
 python "mamba_generate_custom_model.py" \
 --prompt "こんにちは。お元気ですか？" \
 --topp 0.9 \

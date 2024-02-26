@@ -13,7 +13,13 @@ with an efficient hardware-aware design and implementation in the spirit of [Fla
 
 ## Installation
 
-Not needed
+```sh
+git clone -b cpu https://github.com/junkei-okinawa/mamba.git
+cd mamba
+python -m venv --upgrade-dep ./venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
 
 ## Pretrained Models
 
@@ -53,7 +59,24 @@ The script [mamba_generate.py](mamba_generate.py)
 python mamba_generate.py --model-name "state-spaces/mamba-2.8b" --prompt "My cat wrote all this CUDA code for a new language model and" --topp 0.9 --temperature 0.7 --repetition-penalty 1.2
 python mamba_generate.py --model-name "EleutherAI/pythia-2.8b" --prompt "My cat wrote all this CUDA code for a new language model and" --topp 0.9 --temperature 0.7 --repetition-penalty 1.2
 ```
+### Use Metal (MPS)
+It can be used by adding the `-device mps` flag
+```
+python mamba_generate.py --model-name "state-spaces/mamba-2.8b" --prompt "My cat wrote all this mps code for a new language model and" --topp 0.9 --temperature 0.7 --repetition-penalty 1.2 --device mps
+python mamba_generate.py --model-name "EleutherAI/pythia-2.8b" --prompt "My cat wrote all this mps code for a new language model and" --topp 0.9 --temperature 0.7 --repetition-penalty 1.2 --device mps
+```
 
+### Other Models
+We have tested the operation with several models published on Huggingface. Please check the license before using the models and use them at your own risk.
+
+```sh
+# "mrm8488/mamba-coder" for coder
+sh scripts/coder.sh
+# "DeepMount00/Mamba-QA-ITA-790m" for QA
+sh scripts/mamba_qa.sh
+# "clibrain/mamba-2.8b-instruct-openhermes" for Instruction
+sh scripts/instruction.sh
+```
 
 ## Troubleshooting
 

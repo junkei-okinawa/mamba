@@ -24,10 +24,10 @@ parser.add_argument("--topk", type=int, default=1)
 parser.add_argument("--topp", type=float, default=1.0)
 parser.add_argument("--repetition-penalty", type=float, default=1.0)
 parser.add_argument("--batch", type=int, default=1)
+parser.add_argument("--device", type=str, default="cpu")
 args = parser.parse_args()
 
-# device = "cpu"
-device = "mps"
+device = args.device
 dtype = torch.float32
 
 print(f"Loading model {args.model_name}")
